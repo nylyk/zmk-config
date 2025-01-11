@@ -6,6 +6,11 @@
 #define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LSHFT k3  &ht LCTRL k4
 #define HRMR(k1,k2,k3,k4) &ht RCTRL k1  &ht RSHFT k2  &ht LALT k3  &ht LGUI k4
 
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <225>;
+};
+
 &sk {
     release-after-ms = <125>;
     quick-release;
