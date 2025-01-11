@@ -16,9 +16,9 @@
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <90>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
@@ -118,7 +118,7 @@
         //│          │          │          │          │          │   │          │ PrintScr │          │          │          │
             &kp CAPS   &kp ESC   &kp ENTER    &trans     &trans         &trans   &kp PSCRN    &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &trans     &trans         &kp ESC     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
