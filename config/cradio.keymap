@@ -24,7 +24,7 @@
             flavor = "balanced";
             tapping-term-ms = <225>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <225>;
+            require-prior-idle-ms = <200>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -117,8 +117,8 @@
         //│          │          │          │          │          │   │          │ PageDown │   Up     │ PageUp   │ Delete   │
              &trans     &trans     &trans     &trans     &trans         &trans   &kp PG_DN   &kp UP    &kp PG_UP   &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │  Left    │  Down    │  Right   │  GUI     │
-             &trans     &trans     &trans     &trans     &trans         &trans    &kp LEFT   &kp DOWN  &kp RIGHT  &kp LGUI
+        //│          │ Previous │Play/Pause│  Next    │          │   │          │  Left    │  Down    │  Right   │  GUI     │
+             &trans   &kp C_PREV  &kp C_PP  &kp C_NEXT   &trans         &trans    &kp LEFT   &kp DOWN  &kp RIGHT  &kp LGUI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │ PrintScr │          │          │          │
             &kp CAPS   &kp ESC   &kp ENTER    &trans     &trans         &trans   &kp PSCRN    &trans     &trans     &trans
