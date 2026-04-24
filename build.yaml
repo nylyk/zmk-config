@@ -23,7 +23,3 @@ include:
     shield: cradio_left
   - board: puchi_ble//zmk
     shield: cradio_right
-  - board: nice_nano//zmk
-    shield: cradio_left
-  - board: nice_nano//zmk
-    shield: cradio_right
