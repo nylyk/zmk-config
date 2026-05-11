@@ -24,7 +24,7 @@
             flavor = "balanced";
             tapping-term-ms = <225>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <170>;
+            require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -53,14 +53,31 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adjust {
-            if-layers = <2 3>;
-            then-layer = <4>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
         default_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  B       │  L       │  D       │  W       │  Z       │   │  J       │  F       │  O       │  U       │  BSPC    │
+            &kp B      &kp L      &kp D      &kp W      &kp Z          &kp J      &kp F      &kp O      &kp U      &kp BSPC
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  N       │  R       │  T       │  S       │  G       │   │  Y       │  H       │  A       │  E       │  I       │
+            HRML(N,        R,         T,         S)     &kp G          &kp Y      HRMR(H,        A,         E,         I)
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Q       │  X       │  M       │  C       │  V       │   │  K       │  P       │ , <      │ . >      │ ' "      │
+            &kp Q      &kp X      &kp M      &kp C      &kp V          &kp K      &kp P      &m_com     &m_dot     &m_quot
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                            &lt 4 TAB   &sk LSHFT    &lt 2 SPACE &lt 3 ENTER
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;  
+        };
+
+        default_layer_colemak {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  BSPC    │
@@ -72,7 +89,7 @@
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ' "      │
             &kp Y      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &m_com     &m_dot     &m_quot
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &lt 3 TAB   &sk LSHFT    &lt 1 SPACE &lt 2 ENTER
+                                            &lt 4 TAB   &sk LSHFT    &lt 2 SPACE &lt 3 ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -134,8 +151,8 @@
         //│  F1      │  F2      │  F3      │  F4      │  F5      │   │  F6      │  F7      │  F8      │  F9      │  F10     │
             &kp F1     &kp F2     &kp F3     &kp F4     &kp F5         &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │          │   │          │PROFILE 0 │PROFILE 1 │PROFILE 2 │BOOTLOADER│
-          &bootloader   &trans     &trans     &trans     &trans        &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bootloader
+        //│BOOTLOADER│          │ Colemak  │ Graphite │          │   │          │PROFILE 0 │PROFILE 1 │PROFILE 2 │BOOTLOADER│
+          &bootloader   &trans     &to 1     &to 0     &trans        &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ RESET    │          │          │          │          │   │          │  CLEAR   │          │CLEAR ALL │  RESET   │
            &sys_reset   &trans     &trans     &trans     &trans         &trans   &bt BT_CLR   &trans &bt BT_CLR_ALL &sys_reset
